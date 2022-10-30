@@ -6,7 +6,7 @@ import SharedLayot from '../SharedLayout/SharedLayout';
 const App = () => {
   return (
     <div>
-      <Routes basename="/Volodymyr-Bezyk/">
+      <Routes basename="/volodymyr-bezyk/">
         <Route path="/" element={<SharedLayot />}>
           <Route index element={<Home />}></Route>
           <Route path="/movies" element={<div>Search movies</div>}></Route>
