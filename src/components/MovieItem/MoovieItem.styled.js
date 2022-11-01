@@ -6,7 +6,6 @@ export const CardLink = styled(Link)`
   transition: transform 400ms ease-in-out;
   :hover {
     transform: scale(1.1);
-    border: yellow;
     p {
       color: ${p => p.theme.colors.hoverText};
     }

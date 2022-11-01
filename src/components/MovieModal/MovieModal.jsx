@@ -1,8 +1,8 @@
 import { Outlet, useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { getFilmById } from 'helpers/fetchMovies';
+import Box from 'components/Box';
 import {
-  Backdrop,
-  BackBtn,
-  BtnText,
   Modal,
   ModalImg,
   TextWrap,
@@ -12,10 +12,6 @@ import {
   Genre,
   AddLink,
 } from './MovieModal.styled';
-import { BiArrowBack } from 'react-icons/bi';
-import { getFilmById } from 'helpers/fetchMovies';
-import { useEffect } from 'react';
-import { useState } from 'react';
 
 const MovieModal = () => {
   const { movieId } = useParams();
@@ -38,7 +34,6 @@ const MovieModal = () => {
   }, [movieId]);
 
   if (!film) return;
-  console.log(film);
 
   const {
     poster_path: poster,
@@ -50,40 +45,40 @@ const MovieModal = () => {
   } = film;
 
   return (
-    <Backdrop>
-      <BackBtn type="button">
-        <BiArrowBack size={20} strokeWidth={1} display="block"></BiArrowBack>{' '}
-        <BtnText>Go back</BtnText>
-      </BackBtn>
+    <Box display="flex" justifyContent="center">
       <Modal>
-        <ModalImg
-          src={`https://image.tmdb.org/t/p/w400/${poster}`}
-          alt={title}
-        />
+        <Box display="flex">
+          <ModalImg
+            src={`https://image.tmdb.org/t/p/w400/${poster}`}
+            alt={title}
+          />
 
-        <TextWrap>
-          <FilmTitle>{title}</FilmTitle>
-          <Text>Release date: {release}</Text>
-          <Text>Runtime: {runtime} mins</Text>
+          <TextWrap>
+            <FilmTitle>{title}</FilmTitle>
+            <Text>Release date: {release}</Text>
+            <Text>Runtime: {runtime} mins</Text>
 
-          <SubTitle>Overview</SubTitle>
-          <Text>{overview}</Text>
-          <SubTitle>Genres:</SubTitle>
-          <ul>
-            {genres.map(({ name }, idx) => (
-              <Genre key={idx}> {name}</Genre>
-            ))}
-          </ul>
-          <SubTitle>Additional information</SubTitle>
-          <div>
-            <AddLink to="cast">Cast</AddLink>
-            <AddLink to="reviews">Reviews</AddLink>
-          </div>
+            <SubTitle>Overview</SubTitle>
+            <Text>{overview}</Text>
+            <SubTitle>Genres:</SubTitle>
+            <ul>
+              {genres.map(({ name }, idx) => (
+                <Genre key={idx}> {name}</Genre>
+              ))}
+            </ul>
+            <SubTitle>Additional information</SubTitle>
+            <div>
+              <AddLink to="cast">Cast</AddLink>
+              <AddLink to="reviews">Reviews</AddLink>
+            </div>
+          </TextWrap>
+        </Box>
 
+        <div>
           <Outlet></Outlet>
-        </TextWrap>
+        </div>
       </Modal>
-    </Backdrop>
+    </Box>
   );
 };
 

@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 export const Container = styled.div`
   padding: ${p => p.theme.space[2]}px ${p => p.theme.space[3]}px;
   background-color: ${p => p.theme.colors.bg};
-  height: ${p => p.theme.sizes.h.full};
+  /* height: ${p => p.theme.sizes.h.full}; */
 `;
 
 export const Nav = styled.nav`

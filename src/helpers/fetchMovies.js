@@ -20,3 +20,12 @@ export async function getFilmById(movieId, abort) {
   });
   return filmInfo.data;
 }
+
+export async function getFilmCredits(movieId, abort) {
+  const filmPath = `/3/movie/${movieId}/credits`;
+  const filmInfo = await axios.get(filmPath, {
+    signal: abort.signal,
+    params: { api_key: API_KEY },
+  });
+  return filmInfo.data.cast;
+}

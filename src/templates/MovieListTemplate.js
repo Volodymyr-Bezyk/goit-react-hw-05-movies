@@ -19,8 +19,8 @@ const MoovieListtemplate = [
   { id: 16, content: <MyLoader></MyLoader> },
   { id: 17, content: <MyLoader></MyLoader> },
   { id: 18, content: <MyLoader></MyLoader> },
-  { id: 19, content: <MyLoader></MyLoader> },
-  { id: 20, content: <MyLoader></MyLoader> },
+  // { id: 19, content: <MyLoader></MyLoader> },
+  // { id: 20, content: <MyLoader></MyLoader> },
 ];
 
 export default MoovieListtemplate;

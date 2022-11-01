@@ -2,6 +2,9 @@ import styled from 'styled-components';
 
 export const Backdrop = styled.div`
   position: relative;
+  /* display: flex;
+  justify-content: center; */
+  /* align-items: center; */
   padding: ${p => p.theme.space[2]}px;
   height: ${p => p.theme.sizes.h.full};
   background-color: ${p => p.theme.colors.backdrop};
