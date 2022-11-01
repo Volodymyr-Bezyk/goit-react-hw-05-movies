@@ -1,18 +1,18 @@
 import { useState, useEffect } from 'react';
 import { fetchTrendingFilms } from 'helpers/fetchMovies';
-import MoovieItem from 'components/MovieItem/MoovieItem';
+import MovieItem from 'components/MovieItem/MovieItem';
 import { List, ListItem } from './Home.styled';
-import MoovieListtemplate from 'templats/MoovieListTemplate';
+import MovieListtemplate from 'templates/MovieListTemplate';
 
 const Home = () => {
-  const [moovies, setMoovies] = useState([]);
+  const [movies, setMovies] = useState([]);
   useEffect(() => {
     const controller = new AbortController();
 
     async function fetchFilms() {
       try {
         const films = await fetchTrendingFilms(controller);
-        setMoovies(films);
+        setMovies(films);
       } catch {
         return;
       }
@@ -28,13 +28,13 @@ const Home = () => {
   return (
     <div>
       <List>
-        {moovies.length > 0
-          ? moovies.map(moovie => (
-              <ListItem key={moovie.id}>
-                <MoovieItem filmInfo={moovie}></MoovieItem>
+        {movies.length > 0
+          ? movies.map(movie => (
+              <ListItem key={movie.id}>
+                <MovieItem filmInfo={movie}></MovieItem>
               </ListItem>
             ))
-          : MoovieListtemplate.map(t => (
+          : MovieListtemplate.map(t => (
               <ListItem key={t.id}>{t.content}</ListItem>
             ))}
       </List>

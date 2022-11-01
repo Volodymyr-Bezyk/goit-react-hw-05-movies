@@ -1,8 +1,8 @@
 import { CardLink, Img, Title } from './MoovieItem.styled';
 
-const MoovieItem = ({ filmInfo: { backdrop_path, title } }) => {
+const MoovieItem = ({ filmInfo: { id, backdrop_path, title } }) => {
   return (
-    <CardLink>
+    <CardLink to={`movies/${id}`}>
       <div>
         <Img
           src={`https://image.tmdb.org/t/p/w400/${backdrop_path}`}

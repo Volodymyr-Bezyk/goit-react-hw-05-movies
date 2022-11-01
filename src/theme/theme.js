@@ -47,6 +47,10 @@ const theme = {
     border: '#979A9A',
     hover: '#1EE83A',
     hoverText: '#F7DC6F',
+    btnBg: '#FEF9E7',
+    btnHover: '#32EFDB',
+    backdrop: 'rgba(0, 0, 0, 0.2)',
+    modalBg: '#FBFCFC',
   },
 
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 72],

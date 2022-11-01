@@ -11,3 +11,12 @@ export async function fetchTrendingFilms(abort) {
   });
   return films.data.results;
 }
+
+export async function getFilmById(movieId, abort) {
+  const filmPath = `/3/movie/${movieId}`;
+  const filmInfo = await axios.get(filmPath, {
+    signal: abort.signal,
+    params: { api_key: API_KEY },
+  });
+  return filmInfo.data;
+}

@@ -1,16 +1,17 @@
 import { Route, Routes } from 'react-router-dom';
 
 import Home from '../Home';
-import SharedLayot from '../SharedLayout/SharedLayout';
+import SharedLayout from '../SharedLayout';
+import MovieModal from 'components/MovieModal';
 
 const App = () => {
   return (
     <div>
-      <Routes basename="/volodymyr-bezyk/">
-        <Route path="/" element={<SharedLayot />}>
+      <Routes>
+        <Route path="/" element={<SharedLayout />}>
           <Route index element={<Home />}></Route>
-          <Route path="/movies" element={<div>Search movies</div>}></Route>
-          <Route path="/movies/:movieId" element={<div>Movie details</div>}>
+          <Route path="movies" element={<div>Search movies</div>}></Route>
+          <Route path="movies/:movieId" element={<MovieModal />}>
             <Route path="cast" element={<div>Cast</div>}></Route>
             <Route path="reviews" element={<div>Review</div>}></Route>
           </Route>
