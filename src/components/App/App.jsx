@@ -5,6 +5,7 @@ import SharedLayout from '../SharedLayout';
 import MovieModal from 'components/MovieModal';
 import MovieDetails from 'pages/MovieDetails';
 import Cast from 'components/Cast';
+import Reviews from 'components/Reviews';
 
 const App = () => {
   return (
@@ -22,7 +23,7 @@ const App = () => {
             }
           >
             <Route path="cast" element={<Cast />}></Route>
-            <Route path="reviews" element={<div>Review</div>}></Route>
+            <Route path="reviews" element={<Reviews />}></Route>
           </Route>
           <Route path="*" element={<div>Page not found</div>}></Route>
         </Route>

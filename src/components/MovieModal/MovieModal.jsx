@@ -15,7 +15,7 @@ import {
 
 const MovieModal = () => {
   const { movieId } = useParams();
-  const [film, setFilm] = useState('');
+  const [film, setFilm] = useState(null);
 
   useEffect(() => {
     const controller = new AbortController();

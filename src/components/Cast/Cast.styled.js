@@ -9,5 +9,5 @@ export const SubTitle = styled.h3`
 
 export const ListItem = styled.li`
   display: block;
-  padding: ${p => p.theme.space[2]}px;
+  padding: ${p => p.theme.space[3]}px;
 `;

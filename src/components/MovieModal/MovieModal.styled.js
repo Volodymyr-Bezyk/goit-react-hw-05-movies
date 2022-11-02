@@ -4,13 +4,7 @@ import { NavLink } from 'react-router-dom';
 export const Modal = styled.div`
   padding: ${p => p.theme.space[4]}px;
   background-color: ${p => p.theme.colors.modalBg};
-  /* position: absolute; */
-  /* overflow: scroll; */
-
   width: 750px;
-  /* top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
 `;
 
 export const ModalWrapper = styled.div`

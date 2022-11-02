@@ -29,3 +29,12 @@ export async function getFilmCredits(movieId, abort) {
   });
   return filmInfo.data.cast;
 }
+
+export async function getFilmReviews(movieId, abort) {
+  const filmPath = `/3/movie/${movieId}/reviews`;
+  const filmInfo = await axios.get(filmPath, {
+    signal: abort.signal,
+    params: { api_key: API_KEY },
+  });
+  return filmInfo.data.results;
+}

@@ -30,7 +30,7 @@ const Cast = () => {
   return (
     <div>
       <SubTitle>Actors:</SubTitle>
-      <Box as="ul" display="flex" flexWrap="wrap" justifyContent="center">
+      <Box as="ul" display="flex" flexWrap="wrap">
         {actors.map(actor => (
           <ListItem key={actor.id}>
             <CastItem actor={actor}></CastItem>
