@@ -6,7 +6,7 @@ const SearchForm = ({ setQuery }) => {
   const formSubmithandler = e => {
     e.preventDefault();
     const form = e.currentTarget;
-    setQuery(form.elements.searchField.value);
+    setQuery(form.elements.searchField.value.trim());
     form.reset();
   };
 

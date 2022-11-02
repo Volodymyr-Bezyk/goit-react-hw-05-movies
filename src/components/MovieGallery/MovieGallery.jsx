@@ -1,18 +1,22 @@
 import MovieItem from 'components/MovieItem/MovieItem';
+import TemplateGallery from 'templates/Template Gallery';
 
 import { List, ListItem } from './MovieGallery.styled';
 
-const MovieGallery = ({ movies, template }) => {
+const MovieGallery = ({ movies, homePage, loader }) => {
   return (
-    <List>
-      {movies.length > 0
-        ? movies.map(movie => (
+    <>
+      {movies.length > 0 && (
+        <List>
+          {movies.map(movie => (
             <ListItem key={movie.id}>
-              <MovieItem filmInfo={movie}></MovieItem>
+              <MovieItem filmInfo={movie} homePage={homePage}></MovieItem>
             </ListItem>
-          ))
-        : template.map(t => <ListItem key={t.id}>{t.content}</ListItem>)}
-    </List>
+          ))}
+        </List>
+      )}
+      {loader && <TemplateGallery />}
+    </>
   );
 };
 
