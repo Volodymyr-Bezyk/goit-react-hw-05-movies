@@ -1,5 +1,5 @@
 import MovieItem from 'components/MovieItem/MovieItem';
-import TemplateGallery from 'templates/TemplateGallery';
+// import TemplateGallery from 'templates/TemplateGallery';
 
 import { List, ListItem } from './MovieGallery.styled';
 
@@ -15,7 +15,7 @@ const MovieGallery = ({ movies, homePage, loader }) => {
           ))}
         </List>
       )}
-      {loader && <TemplateGallery />}
+      {/* {loader && <TemplateGallery />} */}
     </>
   );
 };
