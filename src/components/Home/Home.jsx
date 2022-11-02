@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { fetchTrendingFilms } from 'helpers/fetchMovies';
-import MovieItem from 'components/MovieItem/MovieItem';
-import { List, ListItem } from './Home.styled';
+import { ListWrap } from './Home.styled';
+import MovieGallery from 'components/MovieGallery';
 import MovieListtemplate from 'templates/MovieListTemplate';
 
 const Home = () => {
@@ -26,19 +26,9 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
-      <List>
-        {movies.length > 0
-          ? movies.map(movie => (
-              <ListItem key={movie.id}>
-                <MovieItem filmInfo={movie}></MovieItem>
-              </ListItem>
-            ))
-          : MovieListtemplate.map(t => (
-              <ListItem key={t.id}>{t.content}</ListItem>
-            ))}
-      </List>
-    </div>
+    <ListWrap>
+      <MovieGallery movies={movies} template={MovieListtemplate}></MovieGallery>
+    </ListWrap>
   );
 };
 

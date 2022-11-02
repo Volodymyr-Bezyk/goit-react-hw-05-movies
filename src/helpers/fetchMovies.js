@@ -38,3 +38,12 @@ export async function getFilmReviews(movieId, abort) {
   });
   return filmInfo.data.results;
 }
+
+export async function searchMoviesByName(movieName, abort) {
+  const filmPath = `/3/search/movie`;
+  const filmInfo = await axios.get(filmPath, {
+    signal: abort.signal,
+    params: { api_key: API_KEY, query: movieName },
+  });
+  return filmInfo.data;
+}

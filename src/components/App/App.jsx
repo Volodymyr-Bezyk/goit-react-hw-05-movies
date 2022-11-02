@@ -6,6 +6,7 @@ import MovieModal from 'components/MovieModal';
 import MovieDetails from 'pages/MovieDetails';
 import Cast from 'components/Cast';
 import Reviews from 'components/Reviews';
+import MoviesPage from 'pages/MoviesPage';
 
 const App = () => {
   return (
@@ -13,7 +14,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<Home />}></Route>
-          <Route path="movies" element={<div>Search movies</div>}></Route>
+          <Route path="movies" element={<MoviesPage />}></Route>
           <Route
             path="movies/:movieId"
             element={

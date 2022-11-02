@@ -5,7 +5,7 @@ const MoovieItem = ({ filmInfo: { id, backdrop_path, title } }) => {
     <CardLink to={`movies/${id}`}>
       <div>
         <Img
-          src={`https://image.tmdb.org/t/p/w400/${backdrop_path}`}
+          src={`https://image.tmdb.org/t/p/w500/${backdrop_path}`}
           alt={title}
         ></Img>
         <Title>{title}</Title>
