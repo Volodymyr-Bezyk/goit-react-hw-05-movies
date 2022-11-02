@@ -12,6 +12,7 @@ import {
   Genre,
   AddLink,
 } from './MovieModal.styled';
+import { dateFormatter } from 'helpers/dateFormatter';
 
 const MovieModal = () => {
   const { movieId } = useParams();
@@ -55,7 +56,7 @@ const MovieModal = () => {
 
           <TextWrap>
             <FilmTitle>{title}</FilmTitle>
-            <Text>Release date: {release}</Text>
+            <Text>Release date: {dateFormatter(release)}</Text>
             <Text>Runtime: {runtime} mins</Text>
 
             <SubTitle>Overview</SubTitle>
