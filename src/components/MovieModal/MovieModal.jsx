@@ -1,7 +1,8 @@
-import { Outlet, useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import { getFilmById } from 'helpers/fetchMovies';
 import Box from 'components/Box';
+import { dateFormatter } from 'helpers/dateFormatter';
+import { useLocation } from 'react-router-dom';
+import noImage from '../../images/noImage.jpg';
+
 import {
   Modal,
   ModalImg,
@@ -12,29 +13,9 @@ import {
   Genre,
   AddLink,
 } from './MovieModal.styled';
-import { dateFormatter } from 'helpers/dateFormatter';
 
-const MovieModal = () => {
-  const { movieId } = useParams();
-  const [film, setFilm] = useState(null);
-
-  useEffect(() => {
-    const controller = new AbortController();
-    async function getInfoAboutFilm() {
-      try {
-        const result = await getFilmById(movieId, controller);
-        setFilm(result);
-      } catch {
-        return;
-      }
-    }
-    getInfoAboutFilm();
-    return () => {
-      controller.abort();
-    };
-  }, [movieId]);
-
-  if (!film) return;
+const MovieModal = ({ movie }) => {
+  const location = useLocation();
 
   const {
     poster_path: poster,
@@ -43,14 +24,15 @@ const MovieModal = () => {
     genres,
     release_date: release,
     runtime,
-  } = film;
-
+  } = movie;
   return (
     <Box display="flex" justifyContent="center">
       <Modal>
         <Box display="flex">
           <ModalImg
-            src={`https://image.tmdb.org/t/p/w400/${poster}`}
+            width="400"
+            height="600"
+            src={poster ? `https://image.tmdb.org/t/p/w400/${poster}` : noImage}
             alt={title}
           />
 
@@ -69,15 +51,15 @@ const MovieModal = () => {
             </ul>
             <SubTitle>Additional information</SubTitle>
             <div>
-              <AddLink to="cast">Cast</AddLink>
-              <AddLink to="reviews">Reviews</AddLink>
+              <AddLink to="cast" end state={{ from: location.state?.from }}>
+                Cast
+              </AddLink>
+              <AddLink to="reviews" end state={{ from: location.state?.from }}>
+                Reviews
+              </AddLink>
             </div>
           </TextWrap>
         </Box>
-
-        <div>
-          <Outlet></Outlet>
-        </div>
       </Modal>
     </Box>
   );

@@ -7,10 +7,6 @@ export const Modal = styled.div`
   width: 750px;
 `;
 
-export const ModalWrapper = styled.div`
-  display: flex;
-`;
-
 export const ModalImg = styled.img`
   display: block;
   height: auto;
