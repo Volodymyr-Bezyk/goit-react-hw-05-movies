@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { MovieList, MovieListItem } from './MovieGalleryOnMoviesPage.styled';
 import MovieGalleryItemOnMoviesPage from 'components/MovieGalleryItemOnMoviesPage';
 
@@ -15,6 +16,14 @@ const MovieGalleryOnMoviesPage = ({ movies }) => {
       )}
     </>
   );
+};
+
+MovieGalleryOnMoviesPage.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+    }).isRequired
+  ).isRequired,
 };
 
 export default MovieGalleryOnMoviesPage;

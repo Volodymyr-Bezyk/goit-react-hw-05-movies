@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { MovieList, MovieListItem } from './MovieGalleryOnHomePage.styled';
 import MovieGalleryItemOnHomePage from 'components/MovieGalleryItemOnHomePage';
 
@@ -15,6 +16,14 @@ const MovieGalleryOnHomePage = ({ movies }) => {
       )}
     </>
   );
+};
+
+MovieGalleryOnHomePage.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+    }).isRequired
+  ).isRequired,
 };
 
 export default MovieGalleryOnHomePage;

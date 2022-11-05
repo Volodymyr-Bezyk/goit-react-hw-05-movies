@@ -16,7 +16,7 @@ export const Movies = () => {
   const page = searchParams.get('page');
   const [response, setResponse] = useState(null);
 
-  const isRenderWithNewQuery = useRef(true);
+  const isRenderWithNewQuery = useRef(false);
 
   useEffect(() => {
     const controller = new AbortController();

@@ -1,4 +1,5 @@
 import { useLocation } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { CardLink, Img, Title } from './MovieGalleryItemOnMoviesPage.styled';
 import notFound from '../../images/notFound.png';
 
@@ -21,6 +22,11 @@ const MovieGalleryItemOnMoviesPage = ({ movie }) => {
       <Title>{title}</Title>
     </CardLink>
   );
+};
+
+MovieGalleryItemOnMoviesPage.propTypes = {
+  backdrop_path: PropTypes.string,
+  title: PropTypes.string,
 };
 
 export default MovieGalleryItemOnMoviesPage;

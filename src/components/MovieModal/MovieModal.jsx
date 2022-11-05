@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import Box from 'components/Box';
 import { dateFormatter } from 'helpers/dateFormatter';
 import { useLocation } from 'react-router-dom';
@@ -63,6 +64,22 @@ const MovieModal = ({ movie }) => {
       </Modal>
     </Box>
   );
+};
+
+MovieModal.propTypes = {
+  movie: PropTypes.shape({
+    poster_path: PropTypes.string,
+    title: PropTypes.string,
+    overview: PropTypes.string,
+    genres: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+      })
+    ),
+    release_date: PropTypes.string,
+    runtime: PropTypes.number,
+  }).isRequired,
 };
 
 export default MovieModal;

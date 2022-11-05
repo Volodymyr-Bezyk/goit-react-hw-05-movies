@@ -1,4 +1,5 @@
 import { HiOutlineSearchCircle } from 'react-icons/hi';
+import PropTypes from 'prop-types';
 import Box from 'components/Box';
 import { InputField, FindBtn } from './SearchBar.styled';
 
@@ -22,6 +23,13 @@ const SearchBar = ({ setSearchParams, isRenderWithNewQuery }) => {
       </Box>
     </form>
   );
+};
+
+SearchBar.propTypes = {
+  setSearchParams: PropTypes.func.isRequired,
+  isRenderWithNewQuery: PropTypes.exact({
+    current: PropTypes.bool.isRequired,
+  }).isRequired,
 };
 
 export default SearchBar;

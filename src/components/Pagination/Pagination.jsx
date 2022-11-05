@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
+import PropTypes from 'prop-types';
 import { useSearchParams } from 'react-router-dom';
 import { PaginationRow } from './Pagination.styled';
 
@@ -37,6 +38,14 @@ const PaginatedItems = ({ response, setSearchParams }) => {
     </>,
     pagination
   );
+};
+
+PaginatedItems.propTypes = {
+  response: PropTypes.shape({
+    total_pages: PropTypes.number.isRequired,
+    page: PropTypes.number.isRequired,
+  }).isRequired,
+  setSearchParams: PropTypes.func.isRequired,
 };
 
 export default PaginatedItems;
